@@ -8,40 +8,48 @@ html,
 body {
   min-block-size: 100vb;
 }
-
+a {
+  color: #eecb60;
+}
 body {
   font-family: system-ui, sans-serif;
-  background-color: antiquewhite;  
+  /* background-color: antiquewhite; */
+  background-image: url("/background.jpg");
   display: grid;
-  grid-template-columns: 
+  grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 75rem)
     minmax(0, 1fr);
 
-    .app-container {
-      grid-column: 2;
-      display: flex;
-      flex-direction: column;
+  .app-container {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
 
-      header {
-        padding: 1rem;
-        border-bottom: 1px solid lightgray;
-      }
+    header {
+      padding: 1rem;
+      border-bottom: 1px solid lightgray;
+      background-color: #b70d00;
+    }
 
-      main {
-        padding: 1rem;
-        flex: 1;
+    main {
+      padding: 1rem;
+      flex: 1;
+      background-color: antiquewhite;
 
-        & > * + * {
-          margin-block-start: 1.5em;
-        }
-      }
-
-      footer {
-        padding: 1rem;
-        border-top: 1px solid lightgray;
+      & > * + * {
+        margin-block-start: 1.5em;
       }
     }
+
+    footer {
+      padding: 1rem;
+      background-color: #b70d00;
+
+      border-top: 1px solid lightgray;
+      color: #eecb60;
+    }
+  }
 }
 
 :not(dialog) {
@@ -60,4 +68,116 @@ code {
   background-color: rgb(0 0 0 / 90%);
   display: inline-block;
   padding: 0.1em 0.5em;
+}
+input[type="number"] {
+  appearance: textfield;
+}
+
+.giftForm {
+  display: flex;
+  flex-direction: column;
+  background-color: #b70d00;
+  border-radius: 1rem;
+  border: 5px ridge #fdc724;
+
+  gap: 2rem;
+  color: #fdc724;
+  align-items: center;
+  padding: 2rem 0;
+  font-size: 1.2rem;
+  :focus-visible {
+    outline: 3px solid #fdc724;
+
+    border-radius: 0.2rem;
+  }
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    input {
+      padding: 0.2rem;
+      border-radius: 0.2rem;
+      border: none;
+    }
+  }
+  button {
+    cursor: pointer;
+    border: 2px solid #005c01;
+
+    color: #fff;
+    background-color: #005c01;
+    padding: 0.5rem 2rem;
+    border-radius: 5vw;
+    transition: all 200ms ease;
+  }
+  button:hover {
+    background-color: #005c01;
+    border: 2px solid #fdc724;
+  }
+}
+
+.julegaveGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+  justify-content: start;
+  gap: 1rem;
+
+  .julegave {
+    color: #fff;
+    background-color: #005c01;
+    padding: 2rem;
+
+    border-radius: 1rem;
+    border: 5px ridge #fdc724;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    :focus-visible {
+      outline: 3px solid #fdc724;
+
+      border-radius: 0.2rem;
+    }
+    .updateGaveForm {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .updateGiftBtn {
+        cursor: pointer;
+        border: none;
+        padding: 0.2rem 2rem;
+        background-color: #eecb60;
+        color: #005c01;
+        border-radius: 0.4rem;
+        outline: none;
+      }
+      .updateGiftBtn:hover {
+        outline: 2px solid #fdc724;
+      }
+    }
+    .deleteForm {
+      button {
+        background-color: #b70d00;
+        color: #fff;
+        border: none;
+        border-radius: 0.2rem;
+        padding: 0.3rem 0.5rem;
+      }
+
+      button:hover {
+        cursor: pointer;
+        outline: 1px solid #fdc724;
+      }
+    }
+  }
 }
